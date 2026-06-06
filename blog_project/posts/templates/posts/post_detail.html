@@ -1,0 +1,48 @@
+{% extends "posts/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article class="detail-card">
+    <div class="detail-header">
+        <span class="badge">{{ post.category.icon }} {{ post.category.name }}</span>
+    </div>
+
+    <h1>{{ post.title }}</h1>
+
+    <p class="meta">
+        Author：{{ post.author.username }} ·
+        Date：{{ post.created_at|date:"Y-m-d H:i" }}
+    </p>
+
+    {% if post.image_url %}
+        <img class="detail-image" src="{{ post.image_url }}" alt="{{ post.title }}">
+    {% endif %}
+
+    <div class="content-text">
+        {{ post.content|linebreaks }}
+    </div>
+
+    <div class="actions">
+        {% if user.is_authenticated %}
+            <form method="post" action="{% url 'toggle_like' post.pk %}">
+                {% csrf_token %}
+
+                <button class="btn" type="submit">
+                    {% if user_liked %}
+                        Unlike
+                    {% else %}
+                        like
+                    {% endif %}
+                </button>
+            </form>
+        {% else %}
+            <p>
+                <a href="{% url 'login' %}">Log in to like posts</a>
+            </p>
+        {% endif %}
+
+        <span class="likes-count">Likes：{{ post.likes.count }}</span>
+    </div>
+</article>
+{% endblock %}

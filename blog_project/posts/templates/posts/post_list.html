@@ -1,0 +1,57 @@
+{% extends "posts/base.html" %}
+
+{% block title %}AllPosts{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <h1>All Posts</h1>
+</section>
+
+<div class="filters">
+    <a class="{% if not selected_category %}active{% endif %}" href="{% url 'post_list' %}">
+        ALL
+    </a>
+
+    {% for category in categories %}
+        <a class="{% if selected_category == category.slug %}active{% endif %}"
+           href="{% url 'post_list' %}?category={{ category.slug }}">
+            {{ category.icon }} {{ category.name }}
+        </a>
+    {% endfor %}
+</div>
+
+<div class="post-grid">
+    {% for post in posts %}
+        <article class="post-card">
+            <div class="preview">
+                {% if post.image_url %}
+                    <img src="{{ post.image_url }}" alt="{{ post.title }}">
+                {% else %}
+                    <span>{{ post.category.icon }}</span>
+                {% endif %}
+            </div>
+
+            <div class="post-card-body">
+                <p class="meta">
+                    {{ post.category.name }} · Author：{{ post.author.username }}
+                </p>
+
+                <h2>{{ post.title }}</h2>
+
+                <p>{{ post.content|truncatechars:160 }}</p>
+
+                <div class="card-info">
+                    <span>Date：{{ post.created_at|date:"Y-m-d" }}</span>
+                    <span>Like：{{ post.likes.count }}</span>
+                </div>
+
+                <a class="btn small" href="{% url 'post_detail' post.pk %}">
+                    View
+                </a>
+            </div>
+        </article>
+    {% empty %}
+        <p>404</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,379 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    color: #172033;
+    background:
+        radial-gradient(circle at top left, rgba(255, 210, 122, 0.5), transparent 32%),
+        linear-gradient(135deg, #f6f8ff 0%, #eef3ff 45%, #fff5e8 100%);
+    min-height: 100vh;
+}
+
+a {
+    color: #3157d5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.site-header {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(40, 60, 120, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #172033;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links a,
+.logout-form button {
+    font-weight: 600;
+    color: #26324c;
+}
+
+.logout-form {
+    margin: 0;
+}
+
+.logout-form button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+}
+
+.user-label {
+    padding: 6px 10px;
+    background: #eef3ff;
+    border-radius: 999px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+.hero {
+    min-height: 320px;
+    padding: 48px;
+    border-radius: 28px;
+    background:
+        linear-gradient(135deg, rgba(147, 222, 162, 0.92), rgba(113, 234, 234, 0.88));
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 18px 48px rgba(44, 64, 128, 0.25);
+}
+
+.hero h1 {
+    max-width: 720px;
+    font-size: 46px;
+    line-height: 1.15;
+    margin: 8px 0 16px;
+}
+
+.hero p {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.section {
+    margin-top: 44px;
+}
+
+.section h2,
+.page-heading h1,
+.form-page h1,
+.detail-card h1 {
+    font-size: 34px;
+    margin-bottom: 14px;
+}
+
+.category-grid,
+.post-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.post-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.category-card,
+.post-card,
+.detail-card,
+.form-page {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(45, 62, 120, 0.1);
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(36, 52, 95, 0.09);
+}
+
+.category-card {
+    padding: 22px;
+    color: #172033;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    text-decoration: none;
+}
+
+.category-icon {
+    display: inline-flex;
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    background: #eef3ff;
+    border-radius: 18px;
+    margin-bottom: 12px;
+}
+
+.post-card {
+    overflow: hidden;
+}
+
+.preview {
+    height: 170px;
+    background: linear-gradient(135deg, #dce6ff, #fff1d6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview span {
+    font-size: 54px;
+}
+
+.preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-card-body {
+    padding: 20px;
+}
+
+.post-card-body h2,
+.post-card-body h3 {
+    margin: 8px 0;
+}
+
+.meta {
+    color: #65708a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-info {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    color: #5c6680;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 999px;
+    background: #c1c1b8;
+    color: white;
+    padding: 12px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn:hover {
+    background: #2447b9;
+    text-decoration: none;
+}
+
+.btn.small {
+    padding: 9px 15px;
+    font-size: 14px;
+}
+
+.text-link {
+    font-weight: 700;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+}
+
+.filters a {
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: white;
+    border: 1px solid rgba(45, 62, 120, 0.12);
+    color: #26324c;
+    font-weight: 600;
+}
+
+.filters a.active {
+    background: #3157d5;
+    color: white;
+}
+
+.detail-card,
+.form-page {
+    padding: 32px;
+}
+
+.detail-header {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 8px 12px;
+    background: #eef3ff;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 22px;
+    margin: 20px 0;
+}
+
+.content-text {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.actions {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.likes-count {
+    font-weight: 700;
+}
+
+.post-form {
+    max-width: 720px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.form-control,
+.post-form input[type="text"],
+.post-form input[type="password"],
+.post-form input[type="url"],
+.post-form textarea,
+.post-form select {
+    width: 100%;
+    border: 1px solid rgba(45, 62, 120, 0.2);
+    border-radius: 14px;
+    padding: 12px 14px;
+    font: inherit;
+    background: white;
+}
+
+.checkbox {
+    width: auto;
+}
+
+.error,
+.form-errors {
+    color: #b00020;
+    font-weight: 600;
+}
+
+.form-errors {
+    background: #ffecef;
+    padding: 12px 14px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 28px;
+    color: #6c738a;
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
